@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :jobs
 
+
   root "jobs#index"
+  get 'apply/:job_id' => 'jobs#apply'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

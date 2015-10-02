@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  
+
 
   # GET /jobs
   # GET /jobs.json
@@ -62,6 +62,12 @@ class JobsController < ApplicationController
 
   # GET /jobs/1/edit
   def edit
+  end
+
+  def apply
+    @user = current_user
+    @user.jobs.append(params[:job_id])
+    @user.save
   end
 
   # POST /jobs
